@@ -1,5 +1,10 @@
 class Api::V1::UsersController < ApplicationController
+  before_action :authenticate_user
   before_action :find_user, only: [:show, :update, :destroy]
+
+  def current
+    render json: current_user.as_json(only: %i(id email))
+  end
 
   def index
     @users = User.all
@@ -33,7 +38,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation)
   end
 
   def find_user
