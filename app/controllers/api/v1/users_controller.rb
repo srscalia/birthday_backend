@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user, only: [:current, :index, :show, :update, :destroy]
+  # before_action :authenticate_v1_user, only: [:current, :index, :show, :update, :destroy]
   before_action :find_user, only: [:show, :update, :destroy]
 
   def current
