@@ -3,7 +3,7 @@ puts "Seeding"
 users = (1..10).to_a
 relations = ['spouse', 'family', 'friend', 'coworker', 'pet']
 years = (2018..2019).to_a
-months = (1..12).to_a
+months = (11..12).to_a
 days = (1..28).to_a
 true_false = [true, false]
 phone_numbers = ["999-999-9999", "123-456-7890"]
