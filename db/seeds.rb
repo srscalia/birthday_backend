@@ -14,7 +14,8 @@ puts "deleting users"
 User.delete_all
 puts 'seeding users'
 10.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.free_email, password: Faker::Internet.password, phone: phone_numbers.sample)
+  # pass = Faker::Internet.password
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.free_email, password: "testing123", password_confirmation: "testing123", phone: phone_numbers.sample)
 end
 puts "Done seeding users."
 
