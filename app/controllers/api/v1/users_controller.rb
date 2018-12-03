@@ -1,9 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-  # before_action :authenticate_v1_user, only: [:current, :index, :show, :update, :destroy]
-  before_action :find_user, only: [:show, :update, :destroy]
+  # before_action :authenticate_user
+  before_action :find_user, only: [:update, :destroy, :current]
 
   def current
-    render json: current_user.as_json(only: %i(id email))
+    render json: current_user
   end
 
   def index

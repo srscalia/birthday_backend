@@ -1,5 +1,5 @@
 class Api::V1::RemindersController < ApplicationController
-  before_action :authenticate_v1_user
+  before_action :authenticate_user
   before_action :find_reminder, only: [:show, :update, :destroy]
 
   def index
