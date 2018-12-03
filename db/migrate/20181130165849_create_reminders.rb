@@ -3,7 +3,7 @@ class CreateReminders < ActiveRecord::Migration[5.2]
     create_table :reminders do |t|
       t.integer :user_id
       t.string :relation
-      t.string :birthday
+      t.date :birthday
       t.string :person_name
       t.boolean :send_reminder
       t.string :phone
