@@ -22,32 +22,12 @@ class Api::V1::MessagesController < ApplicationController
       message = @client.messages
       .create(
         body: "#{@message.content} --- From #{@message.reminder.user.first_name} #{@message.reminder.user.last_name}",
-        from: '+13479976723', 
+        from: '+13479976723',
         to: '+19702759707'
       )
 
-
       render json: @message, status: :created
-
-
-
-
-
-      # client.account.messages.create(
-      # from: from,
-      # byebug
-      # to: to,
-      # # media_url: 'https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1131&q=80',
-      # body: `${@message.content} from ${@message.user.first_name}`
-      # )
-
-
-
-
-
-
     end
-
   end
 
   def update
