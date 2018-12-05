@@ -13,21 +13,41 @@ class Api::V1::MessagesController < ApplicationController
 
   def create
     @message = Message.create(message_params)
-    render json: @message, status: :created
 
     if @message
-      account_sid = 'AC5ef872f6da5a21de157d80997a64bd33'
-      auth_token = '[AuthToken]'
-      # set up a client to talk to the Twilio REST API
-      @client = Twilio::REST::Client.new account_sid, auth_token
-      @client.account.messages.create({
-        :from => '+14158141829',
-        :to => '+16518675309',
-        :body => 'Tomorrow\'s forecast in Financial District, San Francisco is Clear.',
-        :media_url => 'https://climacons.herokuapp.com/clear.png'
-      })
+      account_sid = ENV['ACCOUNT_SID']
+      auth_token = ENV['AUTH_TOKEN']
+
+      @client = Twilio::REST::Client.new(account_sid, auth_token)
+      message = @client.messages
+      .create(
+        body: "#{@message.content} --- From #{@message.reminder.user.first_name} #{@message.reminder.user.last_name}",
+        from: '+13479976723', 
+        to: '+19702759707'
+      )
+
+
+      render json: @message, status: :created
+
+
+
+
+
+      # client.account.messages.create(
+      # from: from,
+      # byebug
+      # to: to,
+      # # media_url: 'https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1131&q=80',
+      # body: `${@message.content} from ${@message.user.first_name}`
+      # )
+
+
+
+
+
 
     end
+
   end
 
   def update

@@ -52,3 +52,9 @@ gem 'knock'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'twilio-ruby'
+
+# Use delayed job for running background jobs
+gem 'delayed_job_active_record'
+
+# Need daemons to start delayed_job
+gem 'daemons'
