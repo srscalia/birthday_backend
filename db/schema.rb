@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_30_165931) do
   create_table "reminders", force: :cascade do |t|
     t.integer "user_id"
     t.string "relation"
-    t.string "birthday"
+    t.date "birthday"
     t.string "person_name"
     t.boolean "send_reminder"
     t.string "phone"

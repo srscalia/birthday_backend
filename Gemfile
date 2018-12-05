@@ -49,3 +49,6 @@ gem 'active_model_serializers'
 gem 'faker'
 
 gem 'knock'
+
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'twilio-ruby'

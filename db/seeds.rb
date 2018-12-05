@@ -27,10 +27,10 @@ end
 puts "Done seeding reminders."
 
 
-Message.delete_all
-counter = 1
-200.times do
-  Message.create(reminder_id: counter, content: "Happy Birthday!!!")
-  counter += 1
-end
-puts "Done seeding messages."
+# Message.delete_all
+# counter = 1
+# 200.times do
+#   Message.create(reminder_id: counter, content: "Happy Birthday!!!")
+#   counter += 1
+# end
+# puts "Done seeding messages."
